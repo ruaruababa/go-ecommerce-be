@@ -1,10 +1,11 @@
 package controllers
 
 import (
-	"go-ecommerce-be/response"
+	"go-ecommerce-be/pkg/response"
 
 	"github.com/gin-gonic/gin"
 )
+
 
 type UserController struct {}
 
@@ -14,9 +15,5 @@ func InitUserController() *UserController {
 }
 
 func (uc *UserController) Register(c *gin.Context) {
-	c.JSON(200, response.BaseResponse{
-		Message: "Hello World",
-		Status: 200,
-		Data: []string{"Hello", "World"},
-	})
+	response.SuccessResponse(c, response.ErrorCodeSuccess, "Register")
 }

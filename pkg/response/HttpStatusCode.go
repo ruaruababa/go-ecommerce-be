@@ -1,6 +1,5 @@
 package response
 
-
 const (
 	ErrorCodeSuccess = 200
 	ErrorCodeBadRequest = 400
@@ -13,7 +12,7 @@ const (
 	ErrorCodeWrongInformation= 1000
 )
 
-var HttpStatusMessage = map[int]string{
+var msg = map[int]string{
 	ErrorCodeSuccess: "Success",
 	ErrorCodeBadRequest: "Bad Request",
 	ErrorCodeUnauthorized: "Unauthorized",
