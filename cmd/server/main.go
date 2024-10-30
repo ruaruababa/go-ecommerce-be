@@ -1,7 +1,11 @@
-package server
+package main
 
-import "fmt"
+import (
+	routers "go-ecommerce-be/internal/services"
+)
 
-func main(){
-	fmt.Println("Start")
+func main() {
+	// Create a new Gin router instance with the default middleware
+    r:= routers.InitRouter()
+    r.Run(":8080")
 }
