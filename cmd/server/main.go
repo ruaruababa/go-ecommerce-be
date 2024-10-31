@@ -1,8 +1,6 @@
 package main
 
-import (
-	routers "go-ecommerce-be/internal/services"
-)
+import "go-ecommerce-be/internal/routers"
 
 func main() {
 	// Create a new Gin router instance with the default middleware
