@@ -4,7 +4,7 @@ logger:
   level: debug
   format: json
   output: stdout
-  file: "./logs/app.log"
+  file: "./storage/app.log"
   max_size: 100
   max_backups: 10
   max_age: 28
