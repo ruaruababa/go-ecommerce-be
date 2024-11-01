@@ -6,9 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-
-type UserController struct {}
-
+type UserController struct{}
 
 func InitUserController() *UserController {
 	return &UserController{}
