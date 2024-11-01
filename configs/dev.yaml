@@ -1,14 +1,23 @@
 server:
-  port: 8080
-databases:
-  - user: admin
-    password: admin
-    host: localhost
-    database_name: shopDEV
-  - user: admin
-    password: admin
-    host: localhost
-    database_name: shopDEV2
+  port: 8088
+logger:
+  level: debug
+  format: json
+  output: stdout
+  file: "./logs/app.log"
+  max_size: 100
+  max_backups: 10
+  max_age: 28
+  compress: true
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  password: root
+  database: shop-dev
+  max_idle: 10
+  max_open: 100
+  connection_timeout: 3600
 security:
   jwt:
     key: secret

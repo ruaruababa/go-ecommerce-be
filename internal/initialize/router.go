@@ -1,4 +1,4 @@
-package routers
+package initialize
 
 import (
 	"go-ecommerce-be/internal/controllers"

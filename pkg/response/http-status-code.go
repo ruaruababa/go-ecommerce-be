@@ -10,6 +10,7 @@ const (
 	ErrorCodeServiceUnavailable  = 503
 	ErrorCodeGatewayTimeout      = 504
 	ErrorCodeWrongInformation    = 1000
+	ErrorCodeInvalidToken        = 1001
 )
 
 var msg = map[int]string{
@@ -22,4 +23,5 @@ var msg = map[int]string{
 	ErrorCodeServiceUnavailable:  "Service Unavailable",
 	ErrorCodeGatewayTimeout:      "Gateway Timeout",
 	ErrorCodeWrongInformation:    "Wrong Infomation",
+	ErrorCodeInvalidToken:        "Invalid Token",
 }

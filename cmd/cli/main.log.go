@@ -8,20 +8,6 @@ import (
 )
 
 func main() {
-	/* 	//logger, _ := zap.NewProduction()
-	   	logger := zap.NewExample()
-	   	logger.Info("Hello, World")
-
-	   	//development logger
-
-	   	logger, _ = zap.NewDevelopment()
-	   	logger.Info("Hello, World")
-
-	   	//production logger
-	   	logger, _ = zap.NewProduction()
-	   	logger.Info("Hello, World") */
-
-	// custom logger
 	formatLog := formatLog()
 	writeLogSync := writeLogSync()
 	coreLogger := zapcore.NewCore(formatLog, writeLogSync, zapcore.InfoLevel)

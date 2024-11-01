@@ -1,9 +1,7 @@
 package main
 
-import "go-ecommerce-be/internal/routers"
+import "go-ecommerce-be/internal/initialize"
 
 func main() {
-	// Create a new Gin router instance with the default middleware
-	r := routers.InitRouter()
-	r.Run(":8080")
+	initialize.InitApp()
 }
