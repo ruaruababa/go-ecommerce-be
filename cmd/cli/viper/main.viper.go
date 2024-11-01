@@ -8,14 +8,14 @@ import (
 
 type Config struct {
 	Server struct {
-		Port      int `mapstructure:"port"`
-		Databases []struct {
-			User         string `mapstructure:"user"`
-			Password     string `mapstructure:"password"`
-			Host         string `mapstructure:"host"`
-			DatabaseName string `mapstructure:"database_name"`
-		} `mapstructure:"databases"`
+		Port int `mapstructure:"port"`
 	}
+	Databases []struct {
+		User         string `mapstructure:"user"`
+		Password     string `mapstructure:"password"`
+		Host         string `mapstructure:"host"`
+		DatabaseName string `mapstructure:"database_name"`
+	} `mapstructure:"databases"`
 }
 
 func main() {
@@ -31,7 +31,16 @@ func main() {
 		panic(fmt.Errorf("fatal error config file: %s", err))
 	}
 
-	// read server config
-	fmt.Println("Server Host: ", viper.GetInt("server.port"))
-	fmt.Println("Server Host: ", viper.GetString("security.jwt.key"))
+	var config Config
+	err = viper.Unmarshal(&config)
+	if err != nil {
+		panic(fmt.Errorf("fatal error config file: %s", err))
+	}
+
+	for _, db := range config.Databases {
+		fmt.Println("Database User: ", db.User)
+		fmt.Println("Database Password: ", db.Password)
+		fmt.Println("Database Host: ", db.Host)
+		fmt.Println("Database Name: ", db.DatabaseName)
+	}
 }
