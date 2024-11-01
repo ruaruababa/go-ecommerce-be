@@ -23,6 +23,13 @@ func main() {
 	logger.Info("Hello, World") */
 
 	//custom logger
+	formatLog := formatLog()
+	writeLogSync := writeLogSync()
+	coreLogger := zapcore.NewCore(formatLog, writeLogSync, zapcore.InfoLevel)
+	logger := zap.New(coreLogger, zap.AddCaller())
+	logger.Info("Hello, World", zap.String("key", "value"))
+
+
 
 }
 
@@ -39,11 +46,14 @@ func formatLog() zapcore.Encoder {
 	//caller encoder
 	encoderConfig.EncodeCaller = zapcore.ShortCallerEncoder
 
-	return zapcore.NewConsoleEncoder(encoderConfig)
+	return zapcore.NewJSONEncoder(encoderConfig)
 }
 
 func writeLogSync() zapcore.WriteSyncer{
-	file, _ := os.OpenFile(".log/log.txt", os.O_RDWR, os.ModePerm)
-	return zapcore.AddSync(file)
+	os.MkdirAll(".log", os.ModePerm)
+	file, _ := os.OpenFile(".log/log.txt", os.O_RDWR|os.O_CREATE, os.ModePerm)
+	syncFile := zapcore.AddSync(file)
+	syncConsole := zapcore.AddSync(os.Stderr)
+	return zapcore.NewMultiWriteSyncer(syncFile, syncConsole)
 }
 
