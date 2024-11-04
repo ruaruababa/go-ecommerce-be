@@ -3,6 +3,8 @@ package globals
 import (
 	"go-ecommerce-be/pkg/logger"
 	"go-ecommerce-be/pkg/settings"
+
+	"gorm.io/gorm"
 )
 
 /*
@@ -13,6 +15,7 @@ import (
  */
 
 var (
-	Config settings.Config
-	Logger *logger.LoggerZap
+	Config  settings.Config
+	Logger  *logger.LoggerZap
+	MysqlDB *gorm.DB
 )

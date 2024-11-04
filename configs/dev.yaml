@@ -13,8 +13,8 @@ mysql:
   host: 127.0.0.1
   port: 3306
   user: root
-  password: root
-  database: shop-dev
+  password:
+  database: shop_dev
   max_idle: 10
   max_open: 100
   connection_timeout: 3600
