@@ -15,6 +15,7 @@ func InitRouter() *gin.Engine {
 	v1 := r.Group("/v1")
 	{
 		v1.GET("/register", controllers.InitUserController().Register)
+		v1.GET("/login", controllers.InitUserController().Login)
 	}
 	return r
 }
