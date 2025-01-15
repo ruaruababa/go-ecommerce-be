@@ -6,6 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+const loginMessage = "Login"
+
+const RegisterMessage = "Register"
+
 type UserController struct{}
 
 func InitUserController() *UserController {
@@ -14,6 +18,8 @@ func InitUserController() *UserController {
 
 func (uc *UserController) Register(c *gin.Context) {
 	response.SuccessResponse(c, response.ErrorCodeSuccess, "Register")
+	response.SuccessResponse(c, response.ErrorCodeSuccess, RegisterMessage)
+	response.SuccessResponse(c, response.ErrorCodeSuccess, loginMessage)
 }
 
 func (uc *UserController) Login(c *gin.Context) {
