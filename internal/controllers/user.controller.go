@@ -25,3 +25,7 @@ func (uc *UserController) Register(c *gin.Context) {
 func (uc *UserController) Login(c *gin.Context) {
 	response.SuccessResponse(c, response.ErrorCodeSuccess, "Login")
 }
+
+func (uc *UserController) Logout(c *gin.Context) {
+	response.SuccessResponse(c, response.ErrorCodeSuccess, "Logout")
+}
